@@ -35,5 +35,30 @@ public class Event
 		this.doors = doors;
 		this.ticketPrice = ticketPrice;
 		this.ticketsSold = ticketsSold;
+	}
+	
+	/**
+	 * These are the getters used for this class
+	 * @return artists, date, doors, ticketPrice and ticketsSold
+	 */
+	
+	public String getArtists() {
+		return artists;
+	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public LocalTime getDoors() {
+		return doors;
+	}
+
+	public Money getTicketPrice() {
+		return ticketPrice;
+	}
+
+	public int getTicketsSold() {
+		return ticketsSold;
 	}	
 }
