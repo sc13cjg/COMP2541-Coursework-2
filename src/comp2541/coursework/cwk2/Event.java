@@ -1,6 +1,5 @@
 package comp2541.coursework.cwk2;
 
-import org.joda.money.Money;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 
@@ -13,10 +12,16 @@ import org.joda.time.LocalTime;
 public class Event
 {
 	private String[] artists;
-	private LocalDate date;
-	private LocalTime doors;
-	private Money ticketPrice;
+	private String date;
+	private String doors;
+	private int ticketPrice;
 	private int ticketsSold;
+	
+	/*
+	 * Reference capacity from Venue
+	 */
+	
+	public Venue capacity;
 	
 	/**
 	 * This is the main constructor for this Event class
@@ -27,9 +32,8 @@ public class Event
 	 * @param ticketsSold
 	 */
 	
-	public Event(String[] artists, LocalDate date, LocalTime doors,
-			Money ticketPrice, int ticketsSold) {
-
+	public Event(String[] artists, String date, String doors,
+			int ticketPrice, int ticketsSold) {
 		this.artists = artists;
 		this.date = date;
 		this.doors = doors;
@@ -46,21 +50,21 @@ public class Event
 		return artists;
 	}
 
-	public LocalDate getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public LocalTime getDoors() {
+	public String getDoors() {
 		return doors;
 	}
 
-	public Money getTicketPrice() {
+	public int getTicketPrice() {
 		return ticketPrice;
 	}
 
 	public int getTicketsSold() {
 		return ticketsSold;
-	}
+	}	
 	
 	/* 
 	 * Method for adding artist
@@ -90,6 +94,57 @@ public class Event
 	}
 	
 	/*
+	 * Method to determine if an event is upcoming
+	 */
+	
+	public boolean isUpcoming(String date, String time) {
+		LocalDate currentDate = LocalDate.now();
+		LocalTime currentTime = LocalTime.now();
+		
+		LocalDate parseDate = LocalDate.parse(date);
+		LocalTime parseTime = LocalTime.parse(time);
+		
+		if (currentDate.isBefore(parseDate))
+			return true;
+		else if (currentTime.isBefore(parseTime))
+			return true;	
+		else 
+			return false;
+	}
+	
+	/*
+	 *  Method to determine if an event is sold out
+	 */
+	
+	public boolean isSoldOut(int capacity, int ticketsSold) {
+		if (capacity >= ticketsSold)
+			return true;
+		else 
+			return false;
+	}
+	
+	/*
+	 *  Method to display how many tickets are available
+	 */
+	
+	public int ticketsAvailable(int capacity, int ticketsSold) {
+		int availableTickets = capacity - ticketsSold;
+		return availableTickets;
+	}
+	
+	/*
+	 *  Method for sell a ticket for an event
+	 */
+	
+	public boolean sellTickets (int ticketsRequired, int ticketsSold, int capacity){
+		int availableTickets = capacity - ticketsSold;
+		if (ticketsRequired <= availableTickets)
+			return true;
+		else
+			return false;
+	}
+	
+	/*
 	 *  Method to calculate total boxOfficeTakings
 	 */
 	
@@ -98,4 +153,6 @@ public class Event
 		String finalAmount = "£" + totalBoxOfficeTakings;
 		return finalAmount;
 	}
+	
+	
 }
