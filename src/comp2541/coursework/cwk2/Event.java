@@ -12,7 +12,7 @@ import org.joda.time.LocalTime;
 
 public class Event
 {
-	private String artists;
+	private String[] artists;
 	private LocalDate date;
 	private LocalTime doors;
 	private Money ticketPrice;
@@ -27,9 +27,9 @@ public class Event
 	 * @param ticketsSold
 	 */
 	
-	public Event(String artists, LocalDate date, LocalTime doors,
+	public Event(String[] artists, LocalDate date, LocalTime doors,
 			Money ticketPrice, int ticketsSold) {
-		super();
+
 		this.artists = artists;
 		this.date = date;
 		this.doors = doors;
@@ -42,7 +42,7 @@ public class Event
 	 * @return artists, date, doors, ticketPrice and ticketsSold
 	 */
 	
-	public String getArtists() {
+	public String[] getArtists() {
 		return artists;
 	}
 
@@ -60,5 +60,42 @@ public class Event
 
 	public int getTicketsSold() {
 		return ticketsSold;
-	}	
+	}
+	
+	/* 
+	 * Method for adding artist
+	 */
+	
+	public void addArtist(String artist){
+		int pos = artists.length + 1;
+		artists[pos] = artist;
+	}
+	
+	/* 
+	 *  Method to determine if an event has passed
+	 */
+	public boolean isPast(String date, String time) {
+		LocalDate currentDate = LocalDate.now();
+		LocalTime currentTime = LocalTime.now();
+		
+		LocalDate parseDate = LocalDate.parse(date);
+		LocalTime parseTime = LocalTime.parse(time);
+		
+		if (currentDate.isAfter(parseDate))
+			return true;
+		else if (currentTime.isAfter(parseTime))
+			return true;	
+		else 
+			return false;
+	}
+	
+	/*
+	 *  Method to calculate total boxOfficeTakings
+	 */
+	
+	public String boxOfficeTakings(int ticketsSold, int ticketPrice) {
+		int totalBoxOfficeTakings = ticketsSold * ticketPrice;
+		String finalAmount = "£" + totalBoxOfficeTakings;
+		return finalAmount;
+	}
 }
