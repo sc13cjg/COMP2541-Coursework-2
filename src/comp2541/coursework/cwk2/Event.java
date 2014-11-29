@@ -3,6 +3,8 @@ package comp2541.coursework.cwk2;
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 
+
+
 /**
  * @author Christian J. Gibbs
  * COMP2451 Coursework 2
@@ -11,7 +13,7 @@ import org.joda.time.LocalTime;
 
 public class Event
 {
-	private String[] artists;
+	private String artists;
 	private String date;
 	private String doors;
 	private int ticketPrice;
@@ -32,13 +34,41 @@ public class Event
 	 * @param ticketsSold
 	 */
 	
-	public Event(String[] artists, String date, String doors,
-			int ticketPrice, int ticketsSold) {
+	public Event(String artists, String date, String doors,
+			int ticketPrice, int ticketsSold){
+		
 		this.artists = artists;
 		this.date = date;
 		this.doors = doors;
 		this.ticketPrice = ticketPrice;
 		this.ticketsSold = ticketsSold;
+		
+		
+		// Validate artist if empty
+		if (artists == null || artists.equals("")){
+			throw new IllegalArgumentException("Artist cannot be left blank!");
+		}
+		
+		// Validate date
+		if (date.length() != "yyyy-MM-dd".length()){
+			throw new IllegalArgumentException("Date cannot be left blank!");
+		}
+		
+		// Validate doors open time
+		if (doors.length() != "hh:mm".length()){
+			throw new IllegalArgumentException("Doors opening time cannot be left blank!");
+		}
+		
+		// Validate ticket price
+		if (ticketPrice <= 0){
+			throw new IllegalArgumentException("Ticket Price cannot be free or less than free!");
+		}
+		
+		// Validate amount of tickets sold
+		if (ticketsSold < 0){
+			throw new IllegalArgumentException("You cannot sell less than no tickets!");
+		}
+		
 	}
 	
 	/**
@@ -46,7 +76,7 @@ public class Event
 	 * @return artists, date, doors, ticketPrice and ticketsSold
 	 */
 	
-	public String[] getArtists() {
+	public String getArtists() {
 		return artists;
 	}
 
@@ -71,13 +101,13 @@ public class Event
 	 */
 	
 	public void addArtist(String artist){
-		int pos = artists.length + 1;
-		artists[pos] = artist;
+		this.artists = this.artists + "," + artists;
 	}
 	
 	/* 
 	 *  Method to determine if an event has passed
 	 */
+	
 	public boolean isPast(String date, String time) {
 		LocalDate currentDate = LocalDate.now();
 		LocalTime currentTime = LocalTime.now();
