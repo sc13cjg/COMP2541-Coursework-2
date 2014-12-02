@@ -1,5 +1,12 @@
 package comp2541.coursework.cwk2;
 
+/**
+ * @author Christian J. Gibbs
+ * COMP2451 Coursework 2
+ * Repository: https://github.com/sc13cjg/COMP2541-Coursework-2
+ *
+ */
+
 import org.junit.Test;
 
 public class EventTest {

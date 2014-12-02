@@ -4,11 +4,10 @@ import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 import org.joda.time.format.DateTimeFormat;
 
-
-
 /**
  * @author Christian J. Gibbs
  * COMP2451 Coursework 2
+ * Repository: https://github.com/sc13cjg/COMP2541-Coursework-2
  *
  */
 

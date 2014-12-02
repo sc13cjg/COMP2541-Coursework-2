@@ -1,10 +1,13 @@
 package comp2541.coursework.cwk2;
 
+
 /**
- * 
  * @author Christian J. Gibbs
+ * COMP2451 Coursework 2
+ * Repository: https://github.com/sc13cjg/COMP2541-Coursework-2
  *
  */
+
 public class Venue{
     private String name;
     private String address;
@@ -55,8 +58,6 @@ public class Venue{
 	 * These are the getters used for this class
 	 * @return name, address, phoneNumber, website and capacity
 	 */
-	
-
 	
 	public String getName() {
 		return name;
