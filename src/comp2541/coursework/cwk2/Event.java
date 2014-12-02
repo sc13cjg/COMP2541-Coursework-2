@@ -99,6 +99,7 @@ public class Event
 	
 	/* 
 	 * Method for adding artist
+	 * @param artist
 	 */
 	
 	public void addArtist(String artist){
@@ -107,6 +108,8 @@ public class Event
 	
 	/* 
 	 *  Method to determine if an event has passed
+	 *  @param date
+	 *  @param time
 	 */
 	
 	public boolean isPast(String date, String time) {
@@ -132,6 +135,8 @@ public class Event
 	
 	/*
 	 * Method to determine if an event is upcoming
+	 * @param date
+	 * @param time
 	 */
 	
 	public boolean isUpcoming(String date, String time) {
@@ -154,6 +159,8 @@ public class Event
 	
 	/*
 	 *  Method to determine if an event is sold out
+	 *  @param capacity
+	 *  @param ticketsSold
 	 */
 	
 	public boolean isSoldOut(int capacity, int ticketsSold) {
@@ -165,6 +172,8 @@ public class Event
 	
 	/*
 	 *  Method to display how many tickets are available
+	 *  @param capacity
+	 *  @param ticketsSold
 	 */
 	
 	public int ticketsAvailable(int capacity, int ticketsSold) {
@@ -174,6 +183,8 @@ public class Event
 	
 	/*
 	 *  Method for sell a ticket for an event
+	 *  @param ticketsSold
+	 *  @param capacity
 	 */
 	
 	public boolean sellTickets (int ticketsRequired, int ticketsSold, int capacity){
@@ -186,6 +197,8 @@ public class Event
 	
 	/*
 	 *  Method to calculate total boxOfficeTakings
+	 *  @param ticketsSold
+	 *  @param ticketPrice
 	 */
 	
 	public String boxOfficeTakings(int ticketsSold, int ticketPrice) {
@@ -193,6 +206,4 @@ public class Event
 		String finalAmount = "£" + totalBoxOfficeTakings;
 		return finalAmount;
 	}
-	
-	
 }

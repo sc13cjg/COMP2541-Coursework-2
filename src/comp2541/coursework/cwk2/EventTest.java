@@ -20,7 +20,6 @@ public class EventTest {
 	}
 	
 	// Generate Pass
-	
 	try {
 		Venue Arena = new Venue("Leeds Arena", "Leeds", "01132263840" , "www.leeds-arena.com", 65000 );
 		System.out.println("Pass: Venue created.");
@@ -36,7 +35,7 @@ public class EventTest {
 	}
 	
 	
-	// Generate Pass
+	// Generate Fail - contains wrong methods of input
 	try {
 		Event Bach = new Event("Bach", "22.12.2014", "19:00", -499, 64943);
 		Bach.addArtist("Chopin"); // Generate Pass
@@ -51,7 +50,6 @@ public class EventTest {
 
 	
 	// Generate Pass
-	
 	try {
 		Event FleetwoodMac = new Event("Fleetwood Mac", "04.01.2015", "20:00", 99, 19997 );
 		FleetwoodMac.addArtist("Jim Morrison"); // Generate Pass
