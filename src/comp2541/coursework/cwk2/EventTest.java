@@ -1,14 +1,18 @@
 package comp2541.coursework.cwk2;
 
-/**
- * @author Christian J. Gibbs
- * COMP2451 Coursework 2
- * Repository: https://github.com/sc13cjg/COMP2541-Coursework-2
- *
- */
+
 
 import org.junit.Test;
-
+/**
+ * <p>
+ * EventTest will be used to call all methods in both Event and Venue
+ * the purpose of calling these methods is to test the validation and data types.
+ * </p>
+ * 
+ * @author Christian J. Gibbs
+ * COMP2451 Coursework 2
+ * Repository: <a>https://github.com/sc13cjg/COMP2541-Coursework-2</a>
+ */
 public class EventTest {
 	public static void main(String[] args){
 	// Generate Pass

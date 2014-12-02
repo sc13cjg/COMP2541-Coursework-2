@@ -1,13 +1,15 @@
 package comp2541.coursework.cwk2;
 
-
 /**
+ * <p>
+ * Venue.java will be contain the main methods for the actions performed
+ * by Venue, such as adding a new venue. Contains getters, constructors and validation.
+ * </p>
+ * 
  * @author Christian J. Gibbs
  * COMP2451 Coursework 2
- * Repository: https://github.com/sc13cjg/COMP2541-Coursework-2
- *
+ * Repository: <a>https://github.com/sc13cjg/COMP2541-Coursework-2</a>
  */
-
 public class Venue{
     private String name;
     private String address;

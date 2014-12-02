@@ -5,12 +5,15 @@ import org.joda.time.LocalTime;
 import org.joda.time.format.DateTimeFormat;
 
 /**
+ * <p>
+ * Event.java will be contain the main methods for the actions performed
+ * by Event, such as creating an event (artist performed). Contains getters, constructors and methods.
+ * </p>
+ * 
  * @author Christian J. Gibbs
  * COMP2451 Coursework 2
- * Repository: https://github.com/sc13cjg/COMP2541-Coursework-2
- *
+ * Repository: <a>https://github.com/sc13cjg/COMP2541-Coursework-2</a>
  */
-
 public class Event
 {
 	private String artists;
