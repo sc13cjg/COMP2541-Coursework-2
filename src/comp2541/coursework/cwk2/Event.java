@@ -2,6 +2,7 @@ package comp2541.coursework.cwk2;
 
 import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
+import org.joda.time.format.DateTimeFormat;
 
 
 
@@ -112,12 +113,18 @@ public class Event
 		LocalDate currentDate = LocalDate.now();
 		LocalTime currentTime = LocalTime.now();
 		
-		LocalDate parseDate = LocalDate.parse(date);
-		LocalTime parseTime = LocalTime.parse(time);
+		org.joda.time.format.DateTimeFormatter dtf = DateTimeFormat.forPattern("dd-MM-yyyy");
+		LocalDate dt = dtf.parseLocalDate(date);
 		
-		if (currentDate.isAfter(parseDate))
+		org.joda.time.format.DateTimeFormatter tf = DateTimeFormat.forPattern("HH:mm");
+		LocalTime t = tf.parseLocalTime(time);
+	
+		/*LocalDate parseDate = LocalDate.parse(date);
+		LocalTime parseTime = LocalTime.parse(time);*/
+		
+		if (currentDate.isAfter(dt))
 			return true;
-		else if (currentTime.isAfter(parseTime))
+		else if (currentTime.isAfter(t))
 			return true;	
 		else 
 			return false;
@@ -131,13 +138,16 @@ public class Event
 		LocalDate currentDate = LocalDate.now();
 		LocalTime currentTime = LocalTime.now();
 		
-		LocalDate parseDate = LocalDate.parse(date);
-		LocalTime parseTime = LocalTime.parse(time);
+		org.joda.time.format.DateTimeFormatter dtf = DateTimeFormat.forPattern("dd-MM-yyyy");
+		LocalDate dt = dtf.parseLocalDate(date);
 		
-		if (currentDate.isBefore(parseDate))
+		org.joda.time.format.DateTimeFormatter tf = DateTimeFormat.forPattern("HH:mm");
+		LocalTime t = tf.parseLocalTime(time);
+		
+		if (currentDate.isBefore(dt))
 			return true;
-		else if (currentTime.isBefore(parseTime))
-			return true;	
+		else if (currentTime.isBefore(t))
+			return true;
 		else 
 			return false;
 	}
